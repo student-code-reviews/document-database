@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 import jinja2
+
 from models import everything
 
 app = Flask(__name__)
@@ -16,4 +17,3 @@ def index():
 
 
 @app.route('/')
-def
