@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 
-{% block title %}HOMEPAGE{% endblock %}
+{% block title %}Start Page{% endblock %}
 
 {% block header %}Let's get Positive!{% endblock %}
 
 {% block content %}
- <form>
-       <label></label>
+        <p><label></label>
           <select name="author" required>
             <option value="" disabled selected hidden>Choose an Author</option>
-            <option value="davy_lewis">davy lewis</option>
-            <option value="jem_castillo">Canteloupe</option>
-            <option value="gab_princess">Honeydew</option>
-          </select>
-  </form>
+            <option value="davy_lewis" class="author" id="davy-lewis">davy lewis</option>
+            <option value="jem_castillo" class="author" id="jem-castillo">jem castillo</option>
+            <option value="gab_princess" class="author" id="gab-princess">gab princess</option>
+        </select></p>
+  <p id="quote-text" class="magic"></p>
 {% endblock %}
