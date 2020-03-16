@@ -22,7 +22,7 @@ def index():
 
 @app.route('/author_choice')
 def one_random_quote():
-    """Return a single quote as a text string"""
-
+    """Return author-choice and single quote as a text string"""
+    # "quotes=QUOTE.QUERY.filter". all"
 #return a random quote
     return random.choice(QUOTES)

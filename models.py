@@ -5,26 +5,51 @@ db = SQLAlchemy()
 
 #############################################################################
 
-class Everything(db.Model):
+# class ModelMixin:
+#     def save(self):
+#         db.session.add(self)
+#         db.session.commit()
 
-    __tablename__ = 'everything'
+combine_table = db.Table('combines',
+                         db.Column('author_id', db.Integer,
+                                   db.ForeignKey('authors.id')),
+                         db.Column('quote_id', db.Integer,
+                                   db.ForeignKey('quotes.id')))
 
-    entry_id = db.column(db.Integer, autoincrementing=True, primary_key=True)
-    author_id = db.column(db.Integer, nullable=False)
-    author_name = db.column(db.String(100), nullable=False)
-    quote = db.column(db.String(1000), nullable=False)
+
+class Author(db.Model):
+
+    __tablename__ = 'authors'
+
+    id = db.column(db.Integer, nullable=False)
+    name = db.column(db.String(100), nullable=False)
+    sources = db.relationship('Quote', secondary='sources')
 
     def __repr__(self):
-        return f"""<everything entry_id={self.entry_id}
-                         author_id={self.author_id}
-                         author_name={self.author_name}
-                         quote={self.quote}>"""
+        return f'<Author {self.id} | {self.name}>'
+
+
+class Quote(db.Model):
+
+    __tablename__ = 'quotes'
+
+    id = db.column(db.Integer, autoincrementing=True, primary_key=True)
+    aquote = db.column(db.String(1000), nullable=False)
+    sources = db.relationship('Author', secondary='sources')
+
+    def __repr__(self):
+        return f'<Quote {self.id} | {self.aquote} >'
 
 
 def connect_to_db(app):
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///document-database'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql:///database'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     db.app = app
     db.init_app(app)
+    with app.app_context():
+        db.create_all()
+
 
 if __name__ == '__main__'
+
+print('Connected to database, tables ready.')
