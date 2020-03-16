@@ -10,18 +10,19 @@ db = SQLAlchemy()
 #         db.session.add(self)
 #         db.session.commit()
 
-combine_table = db.Table('combines',
+sources_table = db.Table('sources',
                          db.Column('author_id', db.Integer,
                                    db.ForeignKey('authors.id')),
                          db.Column('quote_id', db.Integer,
-                                   db.ForeignKey('quotes.id')))
+                                   db.ForeignKey('quotes.id')),
+                         db.Column('source', db.String(200)))
 
 
 class Author(db.Model):
 
     __tablename__ = 'authors'
 
-    id = db.column(db.Integer, nullable=False)
+    id = db.column(db.Integer, primary_key=True)
     name = db.column(db.String(100), nullable=False)
     sources = db.relationship('Quote', secondary='sources')
 
@@ -51,5 +52,6 @@ def connect_to_db(app):
 
 
 if __name__ == '__main__'
+
 
 print('Connected to database, tables ready.')
