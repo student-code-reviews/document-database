@@ -20,7 +20,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/author_choice' ['POST'])
+@app.route('/author_choice', methods=['POST'])
 def one_random_quote():
     """Return author-choice and single quote as a text string"""
     # "quotes=QUOTE.QUERY.filter". all"
