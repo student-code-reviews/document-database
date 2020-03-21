@@ -9,21 +9,13 @@ db = SQLAlchemy()
 #     def save(self):
 #         db.session.add(self)
 #         db.session.commit()
-
-sources_table = db.Table('sources',
-                         db.Column('author_id', db.Integer,
-                                   db.ForeignKey('authors.id')),
-                         db.Column('quote_id', db.Integer,
-                                   db.ForeignKey('quotes.id')),
-                         db.Column('source', db.String(200)))
-
-
+()
 class Author(db.Model):
 
     __tablename__ = 'authors'
 
-    id = db.column(db.Integer, primary_key=True)
-    name = db.column(db.String(100), nullable=False)
+    author_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(), nullable=False)
     sources = db.relationship('Quote', secondary='sources')
 
     def __repr__(self):
@@ -34,12 +26,22 @@ class Quote(db.Model):
 
     __tablename__ = 'quotes'
 
-    id = db.column(db.Integer, autoincrementing=True, primary_key=True)
-    aquote = db.column(db.String(1000), nullable=False)
+    quote_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    aquote = db.Column(db.String(), nullable=False)
     sources = db.relationship('Author', secondary='sources')
 
     def __repr__(self):
         return f'<Quote {self.id} | {self.aquote} >'
+
+
+class Sources(db.Model):
+
+    __tablename__ = 'sources'
+
+    author_id = db.Column(db.Integer, db.ForeignKey('authors.author_id'))
+    quote_id = db.Column(db.Integer, db.ForeignKey('quotes.quote_id'))
+    source = db.Column(db.String())
+    source_id = db.Column(db.Integer, primary_key=True)
 
 
 def connect_to_db(app):
@@ -51,7 +53,5 @@ def connect_to_db(app):
         db.create_all()
 
 
-if __name__ == '__main__'
-
-
-print('Connected to database, tables ready.')
+if __name__ == '__main__':
+    print('Connected to database, tables ready.')
