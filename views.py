@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-# from models import everything
+# from model import Author, Quote, Source
 import jinja2
 import random
 
@@ -20,7 +20,7 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/author_choice')
+@app.route('/author_choice' ['POST'])
 def one_random_quote():
     """Return author-choice and single quote as a text string"""
     # "quotes=QUOTE.QUERY.filter". all"
