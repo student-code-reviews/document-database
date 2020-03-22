@@ -11,27 +11,25 @@
 
 ## Planning
 
-Project Boards -> [GitHub Projects Tab](https://www.google.com)
+Project Boards -> [GitHub Projects Tab](https://github.com/AwksJen/winning-words/projects)
 
-Visuals and Models -> [readMeImages](../blob/master/readMeImages)
+Visuals and Models -> [readMeImages](readMeImages)
 
 ![a model of the tables being used in the database](pathtoimage.jpg)
 
-Wiki -> [readMeImages](https://www.yep.com)
+Wiki -> [First Wiki Page](https://github.com/AwksJen/winning-words/wiki/First-Wiki-Page)
 
 Blog -> [@AwksJen Document-Database Adventure](https://awksjen.wordpress.com/)
 
-!  **Timeline**
+  **Timeline**
 
 mar. 4 through mar. 13 -> First Sprint
-
  * design tables for database
  * visually show plan for mvp
  * configure the beginning code
  * start populating the database
 
 mar. 16, 2020 through mar. 27, 2020 -> Second Sprint
-
  * get actual mvp done
  * add new features like tags to quotes, share buttons/options, show sources with links to quotes, show top 5 versus 1,        voting on quotes
  * add testing
