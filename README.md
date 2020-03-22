@@ -13,7 +13,7 @@
 
 Project Boards -> [GitHub Projects Tab](https://github.com/AwksJen/winning-words/projects)
 
-Visuals and Models -> [readMeImages](readMeImages)
+Visuals and Models -> [readMeImages](https://github.com/AwksJen/winning-words/tree/master/readme-images)
 
 ![a model of the tables being used in the database](pathtoimage.jpg)
 
