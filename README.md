@@ -15,13 +15,13 @@ Project Boards -> [GitHub Projects Tab](https://github.com/AwksJen/winning-words
 
 Visuals and Models -> [readMeImages](https://github.com/AwksJen/winning-words/tree/master/readme-images)
 
-![a model of the tables being used in the database](pathtoimage.jpg)
+![a model of the tables being used in the database](readme-images/Database-Tables.jpg)
 
 Wiki -> [First Wiki Page](https://github.com/AwksJen/winning-words/wiki/First-Wiki-Page)
 
 Blog -> [@AwksJen Document-Database Adventure](https://awksjen.wordpress.com/)
 
-  **Timeline**
+## ![calendar icon](readme-images/icons-8-calendar-50.png) Timeline ![calendar icon](readme-images/icons-8-calendar-50.png)
 
 mar. 4 through mar. 13 -> First Sprint
  * design tables for database
