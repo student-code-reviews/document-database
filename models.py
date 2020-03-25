@@ -9,14 +9,15 @@ db = SQLAlchemy()
 #     def save(self):
 #         db.session.add(self)
 #         db.session.commit()
-()
+
 class Author(db.Model):
 
     __tablename__ = 'authors'
 
     author_id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(), nullable=False)
-    sources = db.relationship('Quote', secondary='sources')
+    quotes = db.relationship('Quote', backref='author')
+    #sources = db.relationship('Quote', secondary='sources')
 
     def __repr__(self):
         return f'<Author {self.id} | {self.name}>'
@@ -28,20 +29,21 @@ class Quote(db.Model):
 
     quote_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     aquote = db.Column(db.String(), nullable=False)
-    sources = db.relationship('Author', secondary='sources')
+    author_id = db.Column(db.Integer, db.ForeignKey('authors.author_id'))
+    #sources = db.relationship('Author', secondary='sources')
 
     def __repr__(self):
         return f'<Quote {self.id} | {self.aquote} >'
 
 
-class Sources(db.Model):
+# class Sources(db.Model):
 
-    __tablename__ = 'sources'
+#     __tablename__ = 'sources'
 
-    author_id = db.Column(db.Integer, db.ForeignKey('authors.author_id'))
-    quote_id = db.Column(db.Integer, db.ForeignKey('quotes.quote_id'))
-    source = db.Column(db.String())
-    source_id = db.Column(db.Integer, primary_key=True)
+#     author_id = db.Column(db.Integer, db.ForeignKey('authors.author_id'))
+#     quote_id = db.Column(db.Integer, db.ForeignKey('quotes.quote_id'))
+#     source = db.Column(db.String())
+#     source_id = db.Column(db.Integer, primary_key=True)
 
 
 def connect_to_db(app):
@@ -54,4 +56,11 @@ def connect_to_db(app):
 
 
 if __name__ == '__main__':
+    from flask import Flask
+    app = Flask(__name__)
+
+    connect_to_db(app)
+    db.drop_all()
+    db.create_all()
+
     print('Connected to database, tables ready.')
