@@ -5,6 +5,24 @@
 {% block header %}Let's get Positive!{% endblock %}
 
 {% block content %}
-       
-  
+     <p>Want a fortune?
+       <button id="get-random-quote-button" class="btn btn-primary">Get A Quote</button>
+     </p>  
+
+     <div id="random-quote-text"></div>
+
+     <form id="quote-form">
+    <div class="form-group">
+      Type in an author to get quotes from them:
+      <input class="form-control" type="text" name="author" id="author-field"
+             placeholder="Author Name">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary" type="submit">Get It</button>
+    </div>
+  </form>
+
+  <div id="quote-s"></div>
+
+
 {% endblock %}
