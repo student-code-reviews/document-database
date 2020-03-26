@@ -20,11 +20,10 @@ def index():
     return render_template('index.html')
 
 
-<<<<<<< HEAD
 @app.route('/author-choice', methods=['POST'])
-=======
-@app.route('/', methods=['GET'])
->>>>>>> ec52212b70e2697f830d74f530f17c01174749eb
+
+
+@app.route('/', methods=['GET']
 def one_random_quote():
     """Return author-choice and single quote as a text string"""
     # "quotes=QUOTE.QUERY.filter". all"
