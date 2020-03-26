@@ -5,12 +5,29 @@
 {% block header %}Let's get Positive!{% endblock %}
 
 {% block content %}
-        <p><label></label>
-          <select name="author" required>
-            <option value="" disabled selected hidden>Choose an Author</option>
-            <option value="davy_lewis" class="author" id="davy-lewis">davy lewis</option>
-            <option value="jem_castillo" class="author" id="jem-castillo">jem castillo</option>
-            <option value="gab_princess" class="author" id="gab-princess">gab princess</option>
-        </select></p>
-  
+     <p>Get A Random Positive Quote:?
+       <button id="get-random-quote-button" class="btn btn-primary">Get A Quote</button>
+     </p>  
+
+     <div id="random-quote-text"></div>
+
+     <form id="quote-form">
+    <div class="form-group">
+      Type in an author to get quotes from them:
+      <input class="form-control" type="text" name="author" id="author-field" placeholder="Author Name">
+      <button class="btn btn-primary" type="submit">Get Quote(s)</button>
+    </div>
+    <div class="form-group">
+      Type in any part of a quote to indentify the author(s):
+      <input class="form-control" type="text" name="quote(s)" id="partial-quote-field"
+             placeholder="Words from Partial Quote">
+      <button class="btn btn-primary" type="submit">Get Author(s)</button>
+    </div>
+  </form>
+
+  <div id="quote-s"></div>
+
+  <div id="author-(s)"></div>
+
+
 {% endblock %}
