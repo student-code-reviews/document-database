@@ -38,7 +38,7 @@ def authored_quotes():
 
 
 @app.route('/possible_author_identities')
-def display_possible_authors():
+def possible_authors():
     """Return list of author possibilities"""
    
     return render_template('possible_author_identities.html')
