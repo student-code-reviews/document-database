@@ -13,22 +13,20 @@
 
      <div id="random-quote-text"></div>
 
-     <form action="authored_quote-s">
+     <form action="authored_quotes">
        <p>Type in an author to get quotes from them:
           <input class="form-control" type="text" name="author" id="author-field" placeholder="Author Name">
           <button class="btn btn-primary" type="submit">Get Quote(s)</button></p>
-    
-    <div class="form-group">
-      Type in any part of a quote to indentify the author(s):
-      <input class="form-control" type="text" name="quote(s)" id="partial-quote-field"
-             placeholder="Words from Partial Quote">
-      <button class="btn btn-primary" type="submit">Get Author(s)</button>
-    </div>
+    </form>
+    <form action="possible_author_identities">
+      <p>Type in any part of a quote to indentify the author(s):
+      <input class="form-control" type="text" name="quote(s)" id="partial-quote-field" placeholder="Words from Partial Quote">
+      <button class="btn btn-primary" type="submit">Get Possible Author(s)</button></p>
   </form>
 
-  <div id="quote-s"></div>
+  <div id="quotes-text"></div>
 
-  <div id="author-(s)"></div>
+  <div id="authors-list-text"></div>
 
 
 {% endblock %}
