@@ -5,18 +5,19 @@
 {% block header %}Let's get Positive!{% endblock %}
 
 {% block content %}
-     <p>Get A Random Positive Quote:?
+  <form action="random_quote">
+     <p>Get A Random Positive Quote:
        <button id="get-random-quote-button" class="btn btn-primary">Get A Quote</button>
-     </p>  
+     </p> 
+     </form> 
 
      <div id="random-quote-text"></div>
 
-     <form id="quote-form">
-    <div class="form-group">
-      Type in an author to get quotes from them:
-      <input class="form-control" type="text" name="author" id="author-field" placeholder="Author Name">
-      <button class="btn btn-primary" type="submit">Get Quote(s)</button>
-    </div>
+     <form action="authored_quote-s">
+       <p>Type in an author to get quotes from them:
+          <input class="form-control" type="text" name="author" id="author-field" placeholder="Author Name">
+          <button class="btn btn-primary" type="submit">Get Quote(s)</button></p>
+    
     <div class="form-group">
       Type in any part of a quote to indentify the author(s):
       <input class="form-control" type="text" name="quote(s)" id="partial-quote-field"
