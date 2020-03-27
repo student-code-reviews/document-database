@@ -22,8 +22,23 @@ def index():
 
 @app.route('/random_quote')
 def random_quote():
-    """Return author-choice and single quote as a text string"""
+    """Return a single random quote as a text string"""
     # "quotes=QUOTE.QUERY.filter". all"
 #return a random quot
     quotes = random.choice(QUOTES)
     return render_template('random_quote.html', quotes = quotes)
+
+
+@app.route('/authored_quotes')
+def authored_quotes():
+    """Return authored-choice and single quote as a text string or multiple 
+       quotes as"""
+    
+    return render_template('authored_quote-s.html')
+
+
+@app.route('/possible_author_identities')
+def display_possible_authors():
+    """Return list of author possibilities"""
+   
+    return render_template('possible_author_identities.html')
