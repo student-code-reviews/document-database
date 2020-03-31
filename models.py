@@ -5,12 +5,13 @@ db = SQLAlchemy()
 
 #############################################################################
 
-# class ModelMixin:
-#     def save(self):
-#         db.session.add(self)
-#         db.session.commit()
+class ModelMixin:
+    def save(self):
+        db.session.add(self)
+        db.session.commit()
 
-class Author(db.Model):
+
+class Author(ModelMixin, db.Model):
 
     __tablename__ = 'authors'
 
@@ -20,10 +21,10 @@ class Author(db.Model):
 
     #sources = db.relationship('Quote', secondary='sources'
     def __repr__(self):
-        return f'<Author {self.id} | {self.name}>'
+        return f'<Author {self.id, name}>'
 
 
-class Quote(db.Model):
+class Quote(ModelMixin, db.Model):
 
     __tablename__ = 'quotes'
 
@@ -32,7 +33,7 @@ class Quote(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey('authors.author_id'))
     #sources = db.relationship('Author', secondary='sources')
     def __repr__(self):
-        return f'<Quote {self.id} | {self.aquote} >'
+        return f'<Quote {self.id, aquote} >'
 
 
 # class Sources(db.Model):
@@ -53,10 +54,8 @@ def connect_to_db(app):
 
 
 if __name__ == '__main__':
-
+    app.run(debug=True, host="0.0.0.0")
     from flask import Flask
-
-    from flask import Flask 
 
     app = Flask(__name__)
 
